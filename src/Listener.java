@@ -42,17 +42,21 @@ public class Listener implements NativeKeyListener{
 		//System.out.println(e.getKeyCode());
 		
 		switch (e.getKeyCode()) {
+		
 		case NativeKeyEvent.VC_CONTROL:
 			ctrl=true;
 			break;
+			
 		case NativeKeyEvent.VC_SHIFT:
 			shift=true;
 			break;
+			
 		case NativeKeyEvent.VC_O:
 			if (ctrl) {
 				o.mostrar();
 			}
 			break;
+			
 		case 3658: //Keycode para la tecla - del numpad
 			if(ctrl && shift) {
 				factor-=0.02f;
@@ -67,6 +71,7 @@ public class Listener implements NativeKeyListener{
 				o.setOpacity((o.getOpacity()*0.8f));
 			}
 			break;
+			
 		case 3662: //Keycode para la tecla + del numpad
 			if(ctrl && shift) {
 				factor+=0.02f;
