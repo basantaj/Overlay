@@ -5,16 +5,27 @@
 Debe usarse con aplicaciones en modo ventana o ventana sin borde. Según investigué, el manejo que tendría que hacerse para mostrar un overlay como el de Steam sería propenso a alertar medidas anti-cheat.
 
 De momento, el programa lee un archivo llamado `combo.txt` en el directorio `res`. Cada input debe ser separado por un guión (`-`) para que el programa procese el texto correctamente.
+
 Los inputs actualmente reconocidos son(no sensibles a mayúsculas):
-`fwd`,`bck` para adelante/atrás respectivamente.
-`dwn`,`up` para abajo/arriba respectivamente.
-`df`,`db` para abajo-adelante/abajo-atrás respectivamente.
-`dp`,`dpb` para movimiento de shoryuken(o en z) hacia adelante/atrás respectivamente(623/421).
-`hcf`,`hcb` para medio círculo hacia adelante/atrás respectivamente(41236/63214).
-`qcf`,`qcb` para cuarto de círculo hacia adelante/atrás respectivamente(236/214).
-`xx` frecuentemente se usa para representar cancelaciones.
-`,` útil como separador.
-`lp,lk,mp,mk,hp,hk` para íconos estilo Street Fighter.
+
+ `fwd`,`bck` para adelante/atrás respectivamente.
+
+ `dwn`,`up` para abajo/arriba respectivamente.
+
+ `df`,`db` para abajo-adelante/abajo-atrás respectivamente.
+
+ `dp`,`dpb` para movimiento de shoryuken(o en z) hacia adelante/atrás respectivamente(623/421).
+
+ `hcf`,`hcb` para medio círculo hacia adelante/atrás respectivamente(41236/63214).
+
+ `qcf`,`qcb` para cuarto de círculo hacia adelante/atrás respectivamente(236/214).
+
+ `xx` frecuentemente se usa para representar cancelaciones.
+
+ `,` útil como separador.
+
+ `lp,lk,mp,mk,hp,hk` para íconos estilo Street Fighter.
+
 `A,B,C,D` para íconos estilo King of Fighters.
 Ambos grupos de botones tienen variantes `cr` ,`j` y `cl` para golpes agachados, en salto o cercanos respectivamente. Sencillamente se agrega el prefijo apropiado al principio. `crLK`, por ejemplo.
 
@@ -25,11 +36,17 @@ El programa escanea el archivo de texto línea a línea y muestra las secuencias
 
 ## Atajos de teclado 
 `ctrl + numpad_PLUS`: Aumenta la opacidad del panel.
+
 `ctrl + numpad_MINUS`: Disminuye la opacidad del panel.
+
 `ctrl + shift + numpad_PLUS`: Aumenta el tamaño de los íconos.
+
 `ctrl + shift + numpad_MINUS`:Disminuye el tamaño de los íconos
+
 `ctrl + O`: Muestra/oculta el panel.
+
 `ctrl + shift + Q`: Cierra el programa.
+
 
 ## Mejoras a futuro
 Si la gente muestra interés, éstas son características que se me ocurrieron pero no sentí urgencia a implementarlas:
