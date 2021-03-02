@@ -11,33 +11,39 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class Imagenes {
-	ProcesarTexto p= new ProcesarTexto();
 	
+	ProcesarTexto p= new ProcesarTexto();
+
+	////Devuelve una lista bidimensional con labels cuyo icono es la imagen apropiada en base a las rutas determinadas por obtenerRuta
 	public List<List<JLabel>> obtenerImagen(float factor) throws FileNotFoundException {
 		
 		List<List<String>> rutas=p.obtenerRuta();
-		List<List<JLabel>> labels=new ArrayList<List<JLabel>>();		
+		List<List<JLabel>> labels=new ArrayList<List<JLabel>>();
+		
 		BufferedImage img;
 		
 		 for(Integer n=0;n<rutas.size();n++) {	
+			 
 			 List<JLabel> imgList= new ArrayList<JLabel>();
+			 
 			 for (Integer i=0;i<rutas.get(n).size();i++) {	
 				 try {
 					 if(rutas.get(n).get(i) != null) {
+						 
 						 img = ImageIO.read(new File(rutas.get(n).get(i)));
 						 JLabel label = new JLabel();
 						 label.setIcon(new ImageIcon(img.getScaledInstance(Math.round(img.getWidth()*factor),Math.round(img.getHeight()*factor),Image.SCALE_SMOOTH)));
 						 imgList.add(label);
+						 
 					 }
 				 } catch (IOException e) {
 					 e.printStackTrace();
 					 return null;
 				 }
 			 }
-			 labels.add(imgList);
-		
+			 
+			 labels.add(imgList);		
 		 }
-
 		
 		return labels; 
 	}

@@ -74,31 +74,35 @@ public class ProcesarTexto {
 		
 	}
 	
-
+	////Escanea el archivo de texto y devuelve una lista de rutas en base a las corresponencias establecidas en el HashMap
 	public List<List<String>> obtenerRuta() throws FileNotFoundException{
+		
 		List<List<String>> listaRutas= new ArrayList<List<String>>();
+		
 		if(!f.exists()) {
 			JOptionPane.showMessageDialog(new JFrame(), "File rcrs/combo.txt not found","Error",JOptionPane.ERROR_MESSAGE);
 		}else {
-			sc= new Scanner(f);			
-
+			
+			sc= new Scanner(f);	
+			
 		while(sc.hasNextLine()) {
+			
 			List<String> rutas = new ArrayList<String>();
 			String[] codigos=sc.nextLine().split("-");
+			
 			for(String str:codigos) {
-				//System.out.println(str.trim());
+
 				rutas.add(imgs.get(str.trim().toUpperCase()));
 				if (imgs.get(str.trim().toUpperCase())==null){
 					JOptionPane.showMessageDialog(new JFrame(),"Move name "+str.trim()+" incorrect", "Error",JOptionPane.ERROR_MESSAGE);
 				}
 			}
 
-			listaRutas.add(rutas);
-		
-		}
+			listaRutas.add(rutas);		
+			}
 		
 			return listaRutas;
-			}
+		}
 		
 		return null;
 	}

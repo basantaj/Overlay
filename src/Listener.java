@@ -13,33 +13,31 @@ import org.jnativehook.keyboard.NativeKeyListener;
 
 
 public class Listener implements NativeKeyListener{
+	
 	boolean ctrl=false;
 	boolean shift=false;
 	Float factor=0.12f;
 	Overlay o;
+	
 	public Listener() throws FileNotFoundException {
-		LogManager.getLogManager().reset();
-		Logger logger = Logger.getLogger(GlobalScreen.class.getPackage().getName());
-		logger.setLevel(Level.OFF);
+		LogManager.getLogManager().reset();	
+		Logger logger = Logger.getLogger(GlobalScreen.class.getPackage().getName()); 
+		logger.setLevel(Level.OFF);	
 		o= new Overlay();
 	}
 	
+	////necesario para el funcionamiento de jnativehook
 	public void agregarHook() throws FileNotFoundException {
-		try {
-
-			
-			GlobalScreen.registerNativeHook();
-						
+		try {			
+			GlobalScreen.registerNativeHook();						
 		}catch (NativeHookException e) {
 			System.out.println("Error registrando hook");
 		}
 		GlobalScreen.addNativeKeyListener(this);
-
 	}
 
 	@Override
 	public void nativeKeyPressed(NativeKeyEvent e) {
-		//System.out.println(e.getKeyCode());
 		
 		switch (e.getKeyCode()) {
 		
@@ -65,8 +63,7 @@ public class Listener implements NativeKeyListener{
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				}
-				SwingUtilities.updateComponentTreeUI(o);
+				}				
 			}else if (ctrl) {
 				o.setOpacity((o.getOpacity()*0.8f));
 			}
@@ -87,6 +84,7 @@ public class Listener implements NativeKeyListener{
 				
 			}
 			break;
+			
 		case NativeKeyEvent.VC_R:
 			if(ctrl) {
 				factor=0.12f;
@@ -96,13 +94,15 @@ public class Listener implements NativeKeyListener{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				break;
 			}
+				break;
+			
 		case NativeKeyEvent.VC_Q:
 			if(ctrl && shift) {
 			System.exit(0);
 			}
 			break;
+			
 		default:
 			break;
 		}
@@ -126,7 +126,7 @@ public class Listener implements NativeKeyListener{
 		/*no se implementa*/
 	}
 	
-	
+	////Restringe el valor que se va a usar para la opacidad.
 	private float clamp(float f) {
 		if (f<0.2f) {
 			return 0.2f;
